@@ -20,11 +20,11 @@ import {
 
 import MenuButton from './MenuButton.js';
 
-function getWidth() {
+export function getWidth() {
   const { width } = Dimensions.get('window');
   return width;
 }
-function getHeight() {
+export function getHeight() {
   const { height } = Dimensions.get('window');
   return height;
 }
@@ -33,7 +33,7 @@ const width = getWidth();
 const NAV_HEIGHT = (Platform.OS === 'android' ? 48 : 44);
 const STATUSBAR_HEIGHT = (Platform.OS === 'android' ? 0 : 20);
 
-function getNavbarHeight() {
+export function getNavbarHeight() {
   return (Platform.OS === 'android' ? 48 : 44) + (Platform.OS === 'android' ? 0 : 20);
 }
 
