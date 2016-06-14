@@ -26,10 +26,10 @@ export default class MenuButton extends Component {
   };
 
   componentWillUpdate = (nextProps) => {
-    if (nextProps.show && !this.props.show) {
-      Animated.timing(this.state.opacity, {toValue: 1}).start();
-    } else if (!nextProps.show && this.props.show) {
-      Animated.timing(this.state.opacity, {toValue: 0}).start();
+    if (!this.props.show && nextProps.show ) {
+      Animated.timing(this.state.opacity, {toValue: 1, duration: 100}).start();
+    } else if (this.props.show && !nextProps.show) {
+      Animated.timing(this.state.opacity, {toValue: 0, duration: 100}).start();
     }
   };
 

@@ -14,7 +14,6 @@ import {
   BackAndroid,
   TouchableHighlight,
   TouchableOpacity,
-  Alert,
   Animated,
   Platform
 } from 'react-native';
@@ -43,7 +42,7 @@ export default class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      backOpacity: new Animated.Value(0),
+      backButtonOpacity: new Animated.Value(0),
       showMenu: false
     };
   }
@@ -60,6 +59,7 @@ export default class Navbar extends Component {
     if (StatusBar && Platform.OS === 'ios') {
       StatusBar.setBarStyle('default', true);
     }
+
     if (BackAndroid) {
       BackAndroid.addEventListener('hardwareBackPress', () => {
         if (this.props.hasBack) {
@@ -73,14 +73,13 @@ export default class Navbar extends Component {
   };
 
   componentWillUpdate = (nextProps) => {
-    if (!this.props.hasBack && nextProps && nextProps.hasBack) {
-      Animated.timing(this.state.backOpacity, {
+    if (!this.props.hasBack  && nextProps.hasBack) {
+      Animated.timing(this.state.backButtonOpacity, {
         toValue: 1,
         duration: 100
       }).start();
-    }
-    if (this.props.hasBack && !nextProps.hasBack) {
-      Animated.timing(this.state.backOpacity, {
+    } else if (this.props.hasBack && !nextProps.hasBack) {
+      Animated.timing(this.state.backButtonOpacity, {
         toValue: 0,
         duration: 200
       }).start();
@@ -89,7 +88,7 @@ export default class Navbar extends Component {
 
   _backPressed = () => {
     if(this.props.backPressed()){
-      Animated.timing(this.state.backOpacity, {
+      Animated.timing(this.state.backButtonOpacity, {
         toValue: 0,
         duration: 200
       }).start();
@@ -111,16 +110,11 @@ export default class Navbar extends Component {
           </View>
           <View style={styles.buttonWrapper}>
             { Platform.OS === 'ios' ?
-              <TouchableOpacity
-                style={styles.menuWrapper}
-                onPress={this._backPressed}
-                accessible = {true}
-                accessibilityLabel={'backButton'}>
+              <TouchableOpacity style={styles.menuWrapper} onPress={this._backPressed}>
                 <Animated.Image
-                  style={[styles.back, {opacity: this.state.backOpacity}]}
+                  style={[styles.back, {opacity: this.state.backButtonOpacity}]}
                   source={require('./assets/ic_back_arrow.png')}/>
               </TouchableOpacity> : <View /> }
-
             <MenuButton style={styles.menuWrapper} show={this.props.show} onPress={this._openMenu}/>
           </View>
         </View>
