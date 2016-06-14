@@ -53,12 +53,10 @@ export default class Menu extends Component {
   render() {
     const {buttonName} = this.props;
     return (
+      <TouchableWithoutFeedback
+        onPress={this._overlayClicked}>
         <View
           style={styles.wrapper}>
-          <TouchableOpacity onPress={this._overlayClicked}>
-            <View style={styles.wrapper}>
-            </View>
-          </TouchableOpacity>
           <Animated.View style={[styles.menu, {opacity: this.state.opacity}]}>
             <TouchableOpacity
               underlayColor="white"
@@ -68,6 +66,7 @@ export default class Menu extends Component {
             </TouchableOpacity>
           </Animated.View>
         </View>
+       </TouchableWithoutFeedback>
     );
   }
 }
