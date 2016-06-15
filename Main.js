@@ -37,7 +37,8 @@ export default class NavbarWrapper extends Component {
 
     title: React.PropTypes.string,
     buttonName: React.PropTypes.string,
-    initialRoute: React.PropTypes.object.isRequired
+    initialRoute: React.PropTypes.object.isRequired,
+    sceneStyle: React.PropTypes.object.isRequired
   };
 
   constructor(props) {
@@ -63,6 +64,7 @@ export default class NavbarWrapper extends Component {
           renderScene={this.props.renderScene}
           ref={(nav) => this.props.setNavigator(nav)}
           configureScene={this.props.configureScene}
+          sceneStyle={this.props.sceneStyle}
         />
 
         { this.props.isMenuOpen ?
