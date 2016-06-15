@@ -39,7 +39,7 @@ export default class MenuButton extends Component {
       <Animated.View style={{opacity: this.state.opacity}}>
         <TouchableOpacity style={this.props.style}
                           onPress={this.props.onPress}>
-          {MenuIcon ?
+          {menuIcon ?
             <Image style={styles.menu} source={menuIcon}/> : null
           }
         </TouchableOpacity>
