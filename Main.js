@@ -56,6 +56,7 @@ export default class NavbarWrapper extends Component {
                       show={this.props.show}
                       title={this.props.title}
                       openMenu={this.props.openMenu}
+                      navbarStyle={this.props.navbarStyle}
               />
             }
           initialRoute={this.props.initialRoute}
