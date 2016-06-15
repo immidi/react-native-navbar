@@ -34,11 +34,14 @@ export default class MenuButton extends Component {
   };
 
   render() {
+    const {menuIcon} = this.props;
     return (
       <Animated.View style={{opacity: this.state.opacity}}>
         <TouchableOpacity style={this.props.style}
                           onPress={this.props.onPress}>
-          <Image style={styles.menu} source={require('./assets/ic_menu.png')}/>
+          {MenuIcon ?
+            <Image style={styles.menu} source={menuIcon}/> : null
+          }
         </TouchableOpacity>
       </Animated.View>
     );

@@ -101,7 +101,7 @@ export default class Navbar extends Component {
   };
 
   render() {
-    const {title , navbarStyle} = this.props;
+    const {title , navbarStyle , backIcon} = this.props;
     return (
       <View style={[navbarStyle ? navbarStyle : styles.wrapper, {opacity: this.props.show ? 1 : 0}]}>
         <View style={styles.main}>
@@ -111,11 +111,16 @@ export default class Navbar extends Component {
           <View style={styles.buttonWrapper}>
             { Platform.OS === 'ios' ?
               <TouchableOpacity style={styles.menuWrapper} onPress={this._backPressed}>
-                <Animated.Image
-                  style={[styles.back, {opacity: this.state.backButtonOpacity}]}
-                  source={require('./assets/ic_back_arrow.png')}/>
+                {backIcon ?
+                  <Animated.Image
+                    style={[styles.back, {opacity: this.state.backButtonOpacity}]}
+                    source={backIcon}/> :
+                  <Animated.Text style={[styles.buttonText, {opacity: this.state.backButtonOpacity}]}>
+                    Back
+                  </Animated.Text>
+                }
               </TouchableOpacity> : <View /> }
-            <MenuButton style={styles.menuWrapper} show={this.props.show} onPress={this._openMenu}/>
+            <MenuButton style={styles.menuWrapper} menuIcon={this.props.menuIcon} show={this.props.show} onPress={this._openMenu}/>
           </View>
         </View>
       </View>);
@@ -181,6 +186,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: "#ffffff",
     fontSize:20
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    marginLeft: 5,
+    color: "#ffffff",
+    fontSize:15
   }
 });
 

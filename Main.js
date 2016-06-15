@@ -39,6 +39,8 @@ export default class NavbarWrapper extends Component {
     title: React.PropTypes.string,
     buttonName: React.PropTypes.string,
     statusBarColor: React.PropTypes.string,
+    backIcon: React.PropTypes.any,
+    menuIcon: React.PropTypes.any,
     initialRoute: React.PropTypes.object.isRequired,
     sceneStyle: React.PropTypes.any.isRequired
   };
@@ -66,6 +68,8 @@ export default class NavbarWrapper extends Component {
                       title={this.props.title}
                       openMenu={this.props.openMenu}
                       navbarStyle={navbarStyle}
+                      backIcon = {this.props.backIcon}
+                      menuIcon = {this.props.menuIcon}
               />
             }
           initialRoute={this.props.initialRoute}
