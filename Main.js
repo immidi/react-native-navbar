@@ -13,6 +13,7 @@ import {
   Text,
   View,
   Navigator,
+  StatusBar,
   StyleSheet
 } from 'react-native';
 
@@ -37,8 +38,9 @@ export default class NavbarWrapper extends Component {
 
     title: React.PropTypes.string,
     buttonName: React.PropTypes.string,
+    statusBarColor: React.PropTypes.string,
     initialRoute: React.PropTypes.object.isRequired,
-    sceneStyle: React.PropTypes.object.isRequired
+    sceneStyle: React.PropTypes.any.isRequired
   };
 
   constructor(props) {
@@ -46,8 +48,14 @@ export default class NavbarWrapper extends Component {
   }
 
   render() {
+    const {statusBarColor , navbarStyle} = this.props;
     return (
       <View style={styles.navView}>
+        <StatusBar
+          animated = {true}
+          backgroundColor= {statusBarColor ? statusBarColor : '#19FCE4'}
+          barStyle="default"
+        />
         <Navigator
           navigationBar=
             {
@@ -57,7 +65,7 @@ export default class NavbarWrapper extends Component {
                       show={this.props.show}
                       title={this.props.title}
                       openMenu={this.props.openMenu}
-                      navbarStyle={this.props.navbarStyle}
+                      navbarStyle={navbarStyle}
               />
             }
           initialRoute={this.props.initialRoute}
