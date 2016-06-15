@@ -41,6 +41,7 @@ export default class NavbarWrapper extends Component {
     statusBarColor: React.PropTypes.string,
     backIcon: React.PropTypes.any,
     menuIcon: React.PropTypes.any,
+    menuItems: React.PropTypes.array,
     initialRoute: React.PropTypes.object.isRequired,
     sceneStyle: React.PropTypes.any.isRequired
   };
@@ -80,7 +81,10 @@ export default class NavbarWrapper extends Component {
         />
 
         { this.props.isMenuOpen ?
-          <Menu closeMenu={this.props.closeMenu} buttonName={this.props.buttonName} onItemSelected={this.props.menuItemSelected }/> : null}
+          <Menu closeMenu={this.props.closeMenu}
+                buttonName={this.props.buttonName}
+                menuItems = {this.props.menuItems}
+                onItemSelected={this.props.menuItemSelected }/> : null}
       </View>
     );
   }

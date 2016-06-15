@@ -1,3 +1,7 @@
+/**
+ * Created by abhisheksingh on 15/06/16.
+ */
+
 
 import React, {Component} from 'react';
 import {
@@ -9,12 +13,10 @@ import {
   TouchableWithoutFeedback,
   Platform
 } from 'react-native';
+
 import {getNavbarHeight , getHeight ,getWidth } from './Navbar';
-import MenuItem from './MenuItem';
 
-export const ITEM_LOGOUT = 'logout';
-
-export default class Menu extends Component {
+export default class MenuItem extends Component {
 
   static propTypes = {
     onItemSelected: React.PropTypes.func.isRequired,
@@ -52,20 +54,11 @@ export default class Menu extends Component {
   };
 
   render() {
-    const {menuItems} = this.props;
+    const {itemName} = this.props;
     return (
-      <TouchableWithoutFeedback
-        onPress={this._overlayClicked}>
-        <View
-          style={styles.wrapper}>
-          <Animated.View style={[styles.menu, {opacity: this.state.opacity}]}>
-            { menuItems
-              .map((item) =>  <MenuItem itemName = {item}
-                                       onItemSelected ={this.props.onItemSelected}
-                                       closeMenu={this.props.closeMenu}/>)}
-          </Animated.View>
-        </View>
-       </TouchableWithoutFeedback>
+        <TouchableOpacity underlayColor="white" onPress={this._itemSelected(itemName)}>
+          <Text style={styles.menuItem}>{itemName}</Text>
+        </TouchableOpacity>
     );
   }
 }
@@ -96,12 +89,6 @@ if(Platform.OS === 'android') {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    position: 'absolute',
-    top: 0,
-    height: getHeight(),
-    width: getWidth()
-  },
   menu: menuStyle,
   menuItem: {
     color: 'rgb(202, 19, 31)',
@@ -109,19 +96,3 @@ const styles = StyleSheet.create({
     marginVertical: 10
   }
 });
-
-///
-//<TouchableWithoutFeedback
-//  onPress={this._overlayClicked}>
-//  <View
-//    style={styles.wrapper}>
-//    <Animated.View accessible={true} style={[styles.menu, {opacity: this.state.opacity}]}>
-//      <TouchableOpacity
-//        underlayColor="white"
-//        onPress={this._itemSelected(ITEM_LOGOUT)}
-//      >
-//        <Bold style={styles.menuItem}>Logout</Bold>
-//      </TouchableOpacity>
-//    </Animated.View>
-//  </View>
-//</TouchableWithoutFeedback>
