@@ -36,6 +36,7 @@ export default class NavbarWrapper extends Component {
     configureScene: React.PropTypes.func.isRequired,
 
     title: React.PropTypes.string,
+    buttonName: React.PropTypes.string,
     initialRoute: React.PropTypes.object.isRequired
   };
 
@@ -64,7 +65,7 @@ export default class NavbarWrapper extends Component {
         />
 
         { this.props.isMenuOpen ?
-          <Menu closeMenu={this.props.closeMenu} onItemSelected={this.props.menuItemSelected }/> : null}
+          <Menu closeMenu={this.props.closeMenu} buttonName={this.props.buttonName} onItemSelected={this.props.menuItemSelected }/> : null}
       </View>
     );
   }
