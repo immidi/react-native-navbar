@@ -12,14 +12,7 @@ import {
 import {getNavbarHeight , getHeight ,getWidth } from './Navbar';
 import MenuItem from './MenuItem';
 
-export const ITEM_LOGOUT = 'logout';
-
 export default class Menu extends Component {
-
-  static propTypes = {
-    onItemSelected: React.PropTypes.func.isRequired,
-    closeMenu: React.PropTypes.func.isRequired
-  };
 
   constructor(props) {
     super(props);
@@ -102,26 +95,5 @@ const styles = StyleSheet.create({
     height: getHeight(),
     width: getWidth()
   },
-  menu: menuStyle,
-  menuItem: {
-    color: 'rgb(202, 19, 31)',
-    marginHorizontal: 20,
-    marginVertical: 10
-  }
+  menu: menuStyle
 });
-
-///
-//<TouchableWithoutFeedback
-//  onPress={this._overlayClicked}>
-//  <View
-//    style={styles.wrapper}>
-//    <Animated.View accessible={true} style={[styles.menu, {opacity: this.state.opacity}]}>
-//      <TouchableOpacity
-//        underlayColor="white"
-//        onPress={this._itemSelected(ITEM_LOGOUT)}
-//      >
-//        <Bold style={styles.menuItem}>Logout</Bold>
-//      </TouchableOpacity>
-//    </Animated.View>
-//  </View>
-//</TouchableWithoutFeedback>

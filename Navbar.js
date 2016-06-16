@@ -126,7 +126,6 @@ export default class Navbar extends Component {
       </View>);
   }
 }
-
 const styles = StyleSheet.create({
   back: {
     width: 14,
