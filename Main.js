@@ -85,7 +85,6 @@ export default class NavbarWrapper extends Component {
                 buttonName={this.props.buttonName}
                 menuItems = {this.props.menuItems}
                 onItemSelected={this.props.menuItemSelected }/> : null}
-                onItemSelected={this.props.menuItemSelected }/> : null}
       </View>
     );
   }

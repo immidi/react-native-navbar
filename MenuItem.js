@@ -19,10 +19,8 @@ export default class MenuItem extends Component {
   }
 
   _itemSelected = (item) => () => {
-    this._animateOut().start(() => {
-      this.props.onItemSelected(item);
-      this.props.closeMenu();
-    });
+    this.props.onItemSelected(item);
+    this.props.closeMenu();
   };
 
   render() {
