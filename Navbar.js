@@ -101,7 +101,7 @@ export default class Navbar extends Component {
   };
 
   render() {
-    const {title , navbarStyle , backIcon} = this.props;
+    const {title , navbarStyle , backIcon , menuItems} = this.props;
     return (
       <View style={[navbarStyle ? navbarStyle : styles.wrapper, {opacity: this.props.show ? 1 : 0}]}>
         <View style={styles.main}>
@@ -120,7 +120,10 @@ export default class Navbar extends Component {
                   </Animated.Text>
                 }
               </TouchableOpacity> : <View /> }
-            <MenuButton style={styles.menuWrapper} menuIcon={this.props.menuIcon} show={this.props.show} onPress={this._openMenu}/>
+            {menuItems && <MenuButton style={styles.menuWrapper}
+                         menuIcon={this.props.menuIcon}
+                         show={this.props.show}
+                         onPress={this._openMenu}/>}
           </View>
         </View>
       </View>);

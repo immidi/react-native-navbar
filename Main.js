@@ -71,6 +71,7 @@ export default class NavbarWrapper extends Component {
                       navbarStyle={navbarStyle}
                       backIcon = {this.props.backIcon}
                       menuIcon = {this.props.menuIcon}
+                      menuItems = {this.props.menuItems}
               />
             }
           initialRoute={this.props.initialRoute}

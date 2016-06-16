@@ -49,16 +49,16 @@ export default class Menu extends Component {
     return (
       <TouchableWithoutFeedback
         onPress={this._overlayClicked}>
-        <View
+        {menuItems ? <View
           style={styles.wrapper}>
           <Animated.View style={[styles.menu, {opacity: this.state.opacity}]}>
             { menuItems
               .map((item) =>  <MenuItem itemName = {item}
-                                       onItemSelected ={this.props.onItemSelected}
-                                       closeMenu={this.props.closeMenu}/>)}
+                                        onItemSelected ={this.props.onItemSelected}
+                                        closeMenu={this.props.closeMenu}/>)}
           </Animated.View>
-        </View>
-       </TouchableWithoutFeedback>
+        </View> : <View/>}
+      </TouchableWithoutFeedback>
     );
   }
 }
