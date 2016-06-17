@@ -41,6 +41,7 @@ export default class NavbarWrapper extends Component {
     title: React.PropTypes.string,
     buttonName: React.PropTypes.string,
     statusBarColor: React.PropTypes.string,
+    statusBarStyle: React.PropTypes.string,
     backIcon: React.PropTypes.any,
     menuIcon: React.PropTypes.any,
     menuItems: React.PropTypes.array
@@ -51,13 +52,13 @@ export default class NavbarWrapper extends Component {
   }
 
   render() {
-    const {statusBarColor , navbarStyle} = this.props;
+    const {statusBarColor , navbarStyle , statusBarStyle} = this.props;
     return (
       <View style={styles.navView}>
         <StatusBar
           animated = {true}
-          backgroundColor= {statusBarColor ? statusBarColor : '#19FCE4'}
-          barStyle="default"
+          backgroundColor = {statusBarColor ? statusBarColor : '#19FCE4'}
+          barStyle = {statusBarStyle? statusBarStyle : "default"}
         />
         <Navigator
           navigationBar=
