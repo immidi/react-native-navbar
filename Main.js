@@ -29,21 +29,21 @@ export default class NavbarWrapper extends Component {
     isMenuOpen: React.PropTypes.bool,
 
     backPressed: React.PropTypes.func.isRequired,
-    openMenu: React.PropTypes.func.isRequired,
-    closeMenu: React.PropTypes.func.isRequired,
-    menuItemSelected: React.PropTypes.func.isRequired,
     renderScene: React.PropTypes.func.isRequired,
     setNavigator: React.PropTypes.func.isRequired,
     configureScene: React.PropTypes.func.isRequired,
+    initialRoute: React.PropTypes.object.isRequired,
+    sceneStyle: React.PropTypes.any,
 
+    openMenu: React.PropTypes.func,
+    closeMenu: React.PropTypes.func,
+    menuItemSelected: React.PropTypes.func,
     title: React.PropTypes.string,
     buttonName: React.PropTypes.string,
     statusBarColor: React.PropTypes.string,
     backIcon: React.PropTypes.any,
     menuIcon: React.PropTypes.any,
-    menuItems: React.PropTypes.array,
-    initialRoute: React.PropTypes.object.isRequired,
-    sceneStyle: React.PropTypes.any.isRequired
+    menuItems: React.PropTypes.array
   };
 
   constructor(props) {
