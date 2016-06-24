@@ -110,7 +110,11 @@ export default class Navbar extends Component {
           </View>
           <View style={styles.buttonWrapper}>
             { Platform.OS === 'ios' ?
-              <TouchableOpacity style={styles.menuWrapper} onPress={this._backPressed}>
+              <TouchableOpacity
+                 style={styles.menuWrapper}
+                 onPress={this._backPressed}
+                 accessible = {true}
+                 accessibilityLabel={'backButton'}>
                 {backIcon ?
                   <Animated.Image
                     style={[styles.back, {opacity: this.state.backButtonOpacity}]}
