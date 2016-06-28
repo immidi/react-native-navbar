@@ -57,19 +57,24 @@ Inside render function
 #Optional Properties:- 
 
 style for navigation bar can be passed through this property
+
     navbarStyle : {{}}
     
 Use this to change statusBar color in Android
+
     statusBarColor :  'cyan'
     
  Use this to change status bar style in iOS , Check possible values in official react native doc https://facebook.github.io/react-native/docs/statusbar.html#barstyle
+         
     statusBarStyle ={"light-content"}
     
 Menu in right side is optional 
 to set menuIcon pass reference of image in this parameter 
+
      menuIcon = {menuIconRef} 
      
 List of action button in menu  
+
     menuItems = {["button1" , "button2" , "button3"]}  
 
 
