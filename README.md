@@ -30,18 +30,9 @@ Inside render function
           />
 
 
-#Required Properties:- 
-#<h4>hasBack<h4>
-<p>True to enable back button otherwise false</p>
-#<h4>backPressed<h4>
-<p>Handler function for back button clicked</p>   
+#Required Properties:-
 #<h4>renderScene<h4>
-<p>renderScene function</p>   
-#<h4>setNavigator<h4>
-<p>setNavigator function , use this as callback function to set navigator reference for example:</p> 
-      _setNavigator = (nav) =>{
-         this.navigator = nav;
-      };
+<p>renderScene function</p>
 #<h4>configureScene<h4>
 <p>configureScene function , example</p>  
      configureScene = () => {
@@ -55,6 +46,17 @@ Inside render function
 
 
 #Optional Properties:- 
+
+#<h4>hasBack<h4>
+<p>True to enable back button otherwise false</p>
+#<h4>backPressed<h4>
+<p>Handler function for back button clicked</p>
+
+#<h4>setNavigator<h4>
+<p>setNavigator function , use this as callback function to set navigator reference for example:</p>
+      _setNavigator = (nav) =>{
+         this.navigator = nav;
+      };
 
 style for navigation bar can be passed through this property
 
