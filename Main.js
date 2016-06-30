@@ -24,13 +24,13 @@ import Menu from './Menu';
 export default class NavbarWrapper extends Component {
 
   static propTypes = {
-    hasBack: React.PropTypes.bool.isRequired,
+    hasBack: React.PropTypes.bool,
     show: React.PropTypes.bool,
     isMenuOpen: React.PropTypes.bool,
 
-    backPressed: React.PropTypes.func.isRequired,
+    backPressed: React.PropTypes.func,
     renderScene: React.PropTypes.func.isRequired,
-    setNavigator: React.PropTypes.func.isRequired,
+    setNavigator: React.PropTypes.func,
     configureScene: React.PropTypes.func.isRequired,
     initialRoute: React.PropTypes.object.isRequired,
     sceneStyle: React.PropTypes.any,
@@ -51,8 +51,36 @@ export default class NavbarWrapper extends Component {
     super(props);
   }
 
+  _backPressed = () => {
+    if(this.props.hasBack)  {
+      this.props.backPressed();
+    }
+  };
+  _openMenu = () => {
+    if(this.props.openMenu) {
+      this.props.openMenu();
+    }
+  };
+  _setNavigator = (nav) => {
+    if(this.props.setNavigator) {
+      this.props.setNavigator(nav);
+    }
+  };
+
   render() {
-    const {statusBarColor , navbarStyle , statusBarStyle} = this.props;
+    const {
+        statusBarColor,
+        navbarStyle,
+        statusBarStyle,
+        hasBack,
+        show,
+        title,
+        backIcon,
+        menuIcon,
+        sceneStyle,
+        menuItems
+      } = this.props;
+
     return (
       <View style={styles.navView}>
         <StatusBar
@@ -64,22 +92,22 @@ export default class NavbarWrapper extends Component {
           navigationBar=
             {
               <Navbar
-                      hasBack={this.props.hasBack}
-                      backPressed={this.props.backPressed}
-                      show={this.props.show}
-                      title={this.props.title}
-                      openMenu={this.props.openMenu}
+                      title={title}
+                      show={show ? show : false}
+                      hasBack={hasBack ? hasBack : false}
                       navbarStyle={navbarStyle}
-                      backIcon = {this.props.backIcon}
-                      menuIcon = {this.props.menuIcon}
-                      menuItems = {this.props.menuItems}
+                      backPressed={this._backPressed}
+                      openMenu={this._openMenu}
+                      backIcon={backIcon}
+                      menuIcon={menuIcon}
+                      menuItems={menuItems}
               />
             }
           initialRoute={this.props.initialRoute}
           renderScene={this.props.renderScene}
-          ref={(nav) => this.props.setNavigator(nav)}
+          ref={(nav) => this._setNavigator(nav)}
           configureScene={this.props.configureScene}
-          sceneStyle={this.props.sceneStyle}
+          sceneStyle={sceneStyle}
         />
 
         { this.props.isMenuOpen ?
