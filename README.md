@@ -17,7 +17,7 @@ Inside render function
             title={"App title "}
             openMenu={this.openMenu}
             closeMenu = {this.closeMenu}
-            initialRoute={APP_ROUTES.HOME}
+            initialRoute={{name:'PageOne', title:'Page One'}}
             renderScene={this.renderScene}
             setNavigator={ this._setNavigator} //use this function if you want to get navigator reference
             configureScene={this.configureScene}
@@ -32,7 +32,16 @@ Inside render function
 
 #Required Properties:-
 #<h4>renderScene<h4>
-<p>renderScene function</p>
+<p>renderScene function, something like-> </p>
+         renderScene = (route, navigator) =>{
+             switch(route.name) {
+               case "pageOne":
+                 return (<PageOne  navigator={navigator} route={route} />);
+               case "pageTwo":
+                 return (<PageTwo  navigator={navigator} route={route}/>);
+             }
+           };
+
 #<h4>configureScene<h4>
 <p>configureScene function , example</p>  
      configureScene = () => {
@@ -42,7 +51,8 @@ Inside render function
 <p>initialRoute, example</p>   
      initialRoute = {name: 'pageOne'}
 #<h4>sceneStyle<h4>
-<p>scene style </p>  
+<p>scene style, eg:</p>  
+          sceneStyle={{flex:1, backgroundColor:'white'}}
 
 
 #Optional Properties:- 
