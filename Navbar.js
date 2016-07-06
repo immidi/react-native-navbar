@@ -101,12 +101,16 @@ export default class Navbar extends Component {
   };
 
   render() {
-    const {title , navbarStyle , backIcon , menuItems} = this.props;
+    const {title , navbarStyle , backIcon , menuItems , logoIcon} = this.props;
     return (
       <View style={[navbarStyle ? navbarStyle : styles.wrapper, {opacity: this.props.show ? 1 : 0}]}>
         <View style={styles.main}>
           <View style={styles.backgroundWrapper}>
-            <Text style={styles.title}>{title}</Text>
+            { logoIcon ?
+              <Image resizeMode="contain" style={styles.backgroundImage}
+                     source={logoIcon}/>
+                :
+              <Text style={styles.title}>{title}</Text> }
           </View>
           <View style={styles.buttonWrapper}>
             { Platform.OS === 'ios' ?
