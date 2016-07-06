@@ -101,13 +101,13 @@ export default class Navbar extends Component {
   };
 
   render() {
-    const {title , navbarStyle , backIcon , menuItems , logoIcon} = this.props;
+    const {title, navbarStyle, backIcon, menuItems, logoIcon, logoIconStyle} = this.props;
     return (
       <View style={[navbarStyle ? navbarStyle : styles.wrapper, {opacity: this.props.show ? 1 : 0}]}>
         <View style={styles.main}>
           <View style={styles.backgroundWrapper}>
             { logoIcon ?
-              <Image resizeMode="contain" style={styles.backgroundImage}
+              <Image resizeMode="contain" style={logoIconStyle ? logoIconStyle :styles.logoIcon}
                      source={logoIcon}/>
                 :
               <Text style={styles.title}>{title}</Text> }
@@ -186,8 +186,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  backgroundImage: {
-    width: width * .4,
+  logoIcon: {
+    width: width * .22,
     justifyContent: 'space-between',
     /** to prevent a jump of the topbar on enter animation */
     marginRight: 5

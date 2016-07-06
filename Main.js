@@ -75,6 +75,7 @@ export default class NavbarWrapper extends Component {
         hasBack,
         show,
         logoIcon,
+        logoIconStyle ,
         title,
         backIcon,
         menuIcon,
@@ -95,6 +96,7 @@ export default class NavbarWrapper extends Component {
               <Navbar
                       title={title}
                       logoIcon={logoIcon}
+                      logoIconStyle={logoIconStyle}
                       show={show ? show : false}
                       hasBack={hasBack ? hasBack : false}
                       navbarStyle={navbarStyle}
