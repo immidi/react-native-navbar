@@ -1,5 +1,5 @@
 {
-  "name": "react-native-navbar",
+  "name": "react-native-navbar-wrapper",
   "version": "1.0.0",
   "description": "Custom navigation bar for react native",
   "main": "Main.js",
