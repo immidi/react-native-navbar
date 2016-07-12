@@ -6,7 +6,7 @@ Navigation bar component for react native
 
 Example Use:- 
 
-         import NavbarWrapper from 'react-native-navbar';
+         import NavbarWrapper from 'react-native-navbar-wrapper';
                   
 Inside render function 
 

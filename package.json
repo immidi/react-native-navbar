@@ -1,6 +1,6 @@
 {
   "name": "react-native-navbar-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom navigation bar for react native",
   "main": "Main.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ExperimentalProjects/ReactNativeComponent.git"
+    "url": "git+https://github.com/immidi/react-native-navbar-wrapper.git"
   },
   "keywords": [
     "react-native",
