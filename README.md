@@ -1,6 +1,10 @@
 # react-native-navbar
 Navigation bar component for react native
 
+Example: [Github repo of this app](https://github.com/immidi/ReactNativeApp)
+         
+![alt tag](http://g.recordit.co/5lXtDXvkFU.gif)
+
 
 
 
