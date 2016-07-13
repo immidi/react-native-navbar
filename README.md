@@ -6,6 +6,9 @@ Example: [Github repo of this app](https://github.com/immidi/ReactNativeApp)
 ![alt tag](http://g.recordit.co/5lXtDXvkFU.gif)
 
 
+Download from [npm](https://www.npmjs.com/package/react-native-navbar-wrapper)
+         
+         npm i react-native-navbar-wrapper
 
 
 Example Use:- 
